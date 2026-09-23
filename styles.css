@@ -1,0 +1,370 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --bg-dark: #070709;
+    --bg-glass: rgba(20, 20, 25, 0.6);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --text-main: #ffffff;
+    --text-muted: #a0a0ab;
+    --accent-cyan: #00f0ff;
+    --accent-silver: #c0c0c0;
+    --glow-cyan: rgba(0, 240, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- NAVEGACIÓN --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 20px var(--glow-cyan);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px transparent;
+}
+
+.btn-primary:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--glow-cyan);
+}
+
+.hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* --- FILOSOFÍA (MISIÓN/VISIÓN) --- */
+.filosofia-section {
+    padding: 8rem 0;
+    position: relative;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-cyan);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.glass-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--accent-silver);
+}
+
+.glass-card p {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* --- PRODUCTOS --- */
+.productos-section {
+    padding: 8rem 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.02));
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 4rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    perspective: 1000px;
+}
+
+.product-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 2rem;
+    background: rgba(25, 25, 30, 0.4);
+    border: 1px solid var(--border-glass);
+    transform-style: preserve-3d;
+    transition: transform 0.1s; /* JS controlará esto */
+    cursor: pointer;
+}
+
+.product-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--color) 0%, transparent 60%);
+    transform: translate(-50%, -50%) translateZ(-50px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    filter: blur(40px);
+}
+
+.product-card:hover .product-glow {
+    opacity: 0.3;
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    transform: translateZ(30px); /* Efecto pop-up en 3D */
+    overflow: hidden;
+}
+
+/* Placeholder para cuando pongas tus imágenes */
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.product-info {
+    transform: translateZ(20px);
+}
+
+.product-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-cyan);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.weight {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER --- */
+.footer {
+    border-top: 1px solid var(--border-glass);
+    padding: 3rem 0;
+    text-align: center;
+    background: #040405;
+}
+
+.footer-brand h3 {
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* --- ANIMACIONES GLOBALES --- */
+.fade-in {
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.fade-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* En móvil se podría agregar un menú hamburguesa */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cards-grid, .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
